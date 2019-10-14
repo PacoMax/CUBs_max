@@ -136,7 +136,7 @@ ts.test <- function(m, #a k by 60 matrix of codon frequencies for k genes
 #
 #genomes<-read.table("genomes.txt", header = T, stringsAsFactors=FALSE)
 #The table needs to have a column containing ids named "FTP" and a column contained organism names named "NAME"
-
+#Require RENC function output, GO annotations and blast results. 
 RENC<-function(genomes, #a table containing ids of the genomes
                type,  #if prokaryote 1, eukaryote 0
                output) #name of the output table
