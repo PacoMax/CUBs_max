@@ -271,8 +271,10 @@ CUB_gsea<-function(genomes, #a table containing ids of the genomes
       info_gene<-read.table(file = paste("CU_table/protein_",genomes$FTP[i],"_table", sep = ""), sep =",", header = T)
       
       
-      #genesOfInterest<-data.frame(names=info_gene$Uniref,tai=info_gene$tai,ncp=info_gene$Ncp, ant=info_gene$NAME)
-      genesOfInterest<-data.frame(Protein_ID=info_gene$Protein_ID,tai=info_gene$tai,ncp=info_gene$Ncp)
+      if(exist("info_gene$NAME")){
+        genesOfInterest<-data.frame(Protein_ID=info_gene$Protein_ID,tai=info_gene$taip,ncp=info_gene$Ncp, ant=info_gene$NAME)
+      }else {genesOfInterest<-data.frame(Protein_ID=info_gene$Protein_ID,tai=info_gene$taip,ncp=info_gene$Ncp)}
+      
       
       #fitting the cub values to a Z distribution with mean 0 and sd 1
       #excluding outliers
@@ -296,16 +298,28 @@ CUB_gsea<-function(genomes, #a table containing ids of the genomes
       
       
       #corresponding table Protein_ID uniref ids extrated from blast format 6 output 
-      #Uncomment (delete #) if you need a corresponding table when Uniref ID's are different from your Protein ID's annotations
+      #Uncomment (delete #) if you need a corresponding table when Uniref ID's are different from your Protein ID's annotations and you use your own annotations by blast
       #corresp<-read.table(file = paste("blastx_r/",genomes$FTP[i],".blastx.txt", sep = ""), sep ="\t", header = F)
       #colnames(corresp)<-c("Protein_ID","Uniref")
       #genesOfInterest<-merge(genesOfInterest,corresp,by="Protein_ID")
       
       
+      #table with name proteins and uniref ids extracted form the uniprot2uniprot.pl output
+      #if you need a corresponding table when Uniref ID's are different from your Protein ID's annotations
+      if(!exists("info_gene$NAME")){
+      functions<-read.table(file = paste("GO_table/","GO_",genomes$FTP[i],"_name.txt", sep = ""), sep ="\t", header = F)
+      colnames(functions)<-c("ant","Uniref")
+      genesOfInterest<-merge(genesOfInterest,functions,by="Uniref")} else{
+      fonames<-genesOfInterest$Protein_ID
+      genesOfInterest$Uniref<-sub("[.].*","",fonames)}
+      
+      
+      
+      
       #counting the annotated genes 
       gonames<-names(geneID2GO)
       fonames<-genesOfInterest$Uniref
-        num_gene_anot<-length(intersect(gonames,fonames))
+      num_gene_anot<-length(intersect(gonames,fonames))
       #counting the total of genes
       num_gene<-length(fonames)
       #estimating how well the genome was annotated
@@ -316,10 +330,7 @@ CUB_gsea<-function(genomes, #a table containing ids of the genomes
       
       
       
-      #table with name proteins and uniref ids extracted form the uniprot2uniprot.pl output
-      functions<-read.table(file = paste("GO_table/","GO_",genomes$FTP[i],"_name.txt", sep = ""), sep ="\t", header = F)
-      colnames(functions)<-c("ant","Uniref")
-      genesOfInterest<-merge(genesOfInterest,functions,by="Uniref")
+ 
       
       
       
