@@ -295,10 +295,11 @@ CUB_gsea<-function(genomes, #a table containing ids of the genomes
       
       
       
-      #corresponding table Protein_ID uniref ids extrated from blast format 6 output
-      corresp<-read.table(file = paste("blastx_r/",genomes$FTP[i],".blastx.txt", sep = ""), sep ="\t", header = F)
-      colnames(corresp)<-c("Protein_ID","Uniref")
-      genesOfInterest<-merge(genesOfInterest,corresp,by="Protein_ID")
+      #corresponding table Protein_ID uniref ids extrated from blast format 6 output 
+      #Uncomment (delete #) if you need a corresponding table when Uniref ID's are different from your Protein ID's annotations
+      #corresp<-read.table(file = paste("blastx_r/",genomes$FTP[i],".blastx.txt", sep = ""), sep ="\t", header = F)
+      #colnames(corresp)<-c("Protein_ID","Uniref")
+      #genesOfInterest<-merge(genesOfInterest,corresp,by="Protein_ID")
       
       
       #counting the annotated genes 
