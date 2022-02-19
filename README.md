@@ -31,4 +31,6 @@ Tabla S2.csv
 
 Tabla_S1.csv
 
+Please cite:
+
 González Serrano, F. M. (2020). Evolución de la eficiencia traduccional debido a la selección del uso de codones en procariotas (Master's thesis, Tesis (MC)--Centro de Investigación y de Estudios Avanzados del IPN Unidad Irapuato. Departamento de Ingeniería Genética). https://repositorio.cinvestav.mx/bitstream/handle/cinvestav/1696/SSIT0016243.pdf?sequence=1
