@@ -34,3 +34,6 @@ Tabla_S1.csv
 Please cite:
 
 González Serrano, F. M. (2020). Evolución de la eficiencia traduccional debido a la selección del uso de codones en procariotas (Master's thesis, Tesis (MC)--Centro de Investigación y de Estudios Avanzados del IPN Unidad Irapuato. Departamento de Ingeniería Genética). https://repositorio.cinvestav.mx/bitstream/handle/cinvestav/1696/SSIT0016243.pdf?sequence=1
+
+Reis, M. D., Savva, R., & Wernisch, L. (2004). Solving the riddle of codon usage preferences: a test for translational selection. 
+Nucleic acids research, 32(17), 5036-5044.
