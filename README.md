@@ -3,7 +3,7 @@
 Scripts for using R ENC'. A metric to quantify codon usage bias selection in prokaryote genomes. If you want to run them, please follow the instructions specified when running each script.
 
 ## CUBs_max.sh
-Script for calculation of tAI and Nc' (metrics for CUBs (Codon usage bias selection)) for each protein-coding gene given a genome, and tables required by RENC_super.r.
+Script for calculating tAI and Nc' (metrics for CUBs (Codon usage bias selection)) for each protein-coding gene given a genome, and tables required by RENC_super.r.
 
 ## RENC_super.r
 Script with functions for calculating R ENC', Codon usage bias selection (tAI and NC') on Gene Ontology categories, and also for doing GSEA for CUBs in GO categories. It uses outputs from CUBs_max.sh
